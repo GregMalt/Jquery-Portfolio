@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Color Changing Text</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div id="text-container">
+        <p id="changing-text">Hello World!</p>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            var colors = ['black', 'blue', 'green'];
+            var currentIndex = 0;
+
+            // Function to change the text color
+            function changeColor() {
+                $('#changing-text').css('color', colors[currentIndex]);
+                currentIndex = (currentIndex + 1) % colors.length;
+            }
+
+            // Call the changeColor function every one second
+            setInterval(changeColor, 1000);
+        });
+    </script>
+</body>
+</html>

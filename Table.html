@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Table Highlighting</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Office</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>John</td>
+                <td>Smith</td>
+                <td>jsmith@sar.com</td>
+                <td>+30 210 1234567</td>
+                <td>PN 514</td>
+            </tr>
+            <tr>
+                <td>Maria</td>
+                <td>Carras</td>
+                <td>mcarras@jsu.edu</td>
+                <td>+30 210 7654321</td>
+                <td>PM 413</td>
+            </tr>
+            <tr>
+                <td>Helen</td>
+                <td>Antypas</td>
+                <td>hantypas@bdg.com</td>
+                <td>+30 2310 654321</td>
+                <td>PK 614</td>
+            </tr>
+            <tr>
+                <td>Afroditi</td>
+                <td>Makri</td>
+                <td>amakri@hughes.edu</td>
+                <td>+30 2310 123456</td>
+                <td>PJ 717</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button id="btnNext">Next</button>
+    <button id="btnClear">Clear</button>
+
+    <script>
+        $(document).ready(function() {
+            var currentIndex = -1;
+
+            $('#btnNext').click(function() {
+                // Clear the previous highlighted row
+                $('tbody tr').eq(currentIndex).css('color', 'black');
+                
+                // Highlight the next row
+                currentIndex = (currentIndex + 1) % $('tbody tr').length;
+                $('tbody tr').eq(currentIndex).css('color', 'red');
+            });
+
+            $('#btnClear').click(function() {
+                // Clear all rows
+                $('tbody tr').css('color', 'black');
+                currentIndex = -1;
+            });
+        });
+    </script>
+</body>
+</html>

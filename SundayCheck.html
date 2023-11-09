@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Day Greeting</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div id="greeting">
+        
+    </div>
+
+    <script>
+        
+        var currentDate = new Date();
+        
+        
+        var currentDay = currentDate.getDay();
+
+       
+        if (currentDay === 0) {
+            
+            $('#greeting').text('It is Sunday!').css('color', 'green');
+        } else {
+           
+            $('#greeting').text('It is not Sunday.').css('color', 'blue');
+        }
+    </script>
+</body>
+</html>
